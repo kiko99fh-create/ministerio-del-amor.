@@ -1,252 +1,1161 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ministerio del Amor | Medicina para el Alma</title>
-    <style>
-        :root {
-            --ghibli-sky: #87a7b3;
-            --ghibli-sand: #fcf9f2;
-            --ghibli-earth: #d4a373;
-            --ghibli-forest: #606c38;
-            --text: #4a4a4a;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        body {
-            font-family: 'Quicksand', sans-serif;
-            background-color: var(--ghibli-sand);
-            color: var(--text);
-            margin: 0;
-            line-height: 1.6;
-        }
+<title>Ministerio del Amor | Medicina para el Alma</title>
 
-        /* Hero Section & Logo */
-        header {
-            background: white;
-            text-align: center;
-            padding: 60px 20px;
-            border-bottom: 5px solid var(--ghibli-earth);
-        }
+<style>
 
-        .logo-container img {
-            max-width: 220px;
-            border-radius: 50%;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-            margin-bottom: 20px;
-            animation: float 5s ease-in-out infinite;
-        }
+:root {
+    --ghibli-sky: #87a7b3;
+    --ghibli-sand: #fcf9f2;
+    --ghibli-earth: #d4a373;
+    --ghibli-forest: #606c38;
+    --text: #4a4a4a;
+}
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: var(--ghibli-sand);
+    color: var(--text);
+    margin: 0;
+    line-height: 1.6;
+}
 
-        .frase-motivacional {
-            font-style: italic;
-            color: var(--ghibli-earth);
-            max-width: 600px;
-            margin: 20px auto;
-            font-size: 1.2rem;
-            padding: 0 15px;
-        }
+/* HERO */
 
-        /* Galería de Productos */
-        .contenedor {
-            max-width: 1100px;
-            margin: 50px auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            padding: 0 20px;
-        }
+header {
+    background: white;
+    text-align: center;
+    padding: 60px 20px;
+    border-bottom: 5px solid var(--ghibli-earth);
+}
 
-        .tarjeta {
-            background: white;
-            border-radius: 25px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            display: flex;
-            flex-direction: column;
-        }
+.logo-container img {
+    max-width: 220px;
+    border-radius: 50%;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    margin-bottom: 20px;
+    animation: float 5s ease-in-out infinite;
+}
 
-        .tarjeta:hover {
-            transform: scale(1.03);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
+@keyframes float {
 
-        .img-prod {
-            width: 100%;
-            height: 280px;
-            object-fit: cover;
-            cursor: pointer;
-            background-color: #eee;
-        }
+    0%,100% {
+        transform: translateY(0);
+    }
 
-        .info {
-            padding: 25px;
-            text-align: center;
-            flex-grow: 1;
-        }
+    50% {
+        transform: translateY(-15px);
+    }
+}
 
-        .precio-original {
-            text-decoration: line-through;
-            color: #b5b5b5;
-            font-size: 0.9rem;
-        }
+.frase-motivacional {
+    font-style: italic;
+    color: var(--ghibli-earth);
+    max-width: 600px;
+    margin: 20px auto;
+    font-size: 1.2rem;
+    padding: 0 15px;
+}
 
-        .precio-actual {
-            display: block;
-            color: var(--ghibli-forest);
-            font-weight: 700;
-            font-size: 1.4rem;
-            margin: 8px 0;
-        }
+/* MENU */
 
-        .btn-wa {
-            display: inline-block;
-            background: #25d366;
-            color: white;
-            padding: 12px 25px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-            margin-top: 10px;
-        }
+.menu {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    padding: 20px;
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
 
-        .btn-wa:hover { background: #128c7e; }
+.menu button {
+    background: var(--ghibli-earth);
+    color: white;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: 0.3s;
+}
 
-        /* Footer & Contacto */
-        footer {
-            background: white;
-            text-align: center;
-            padding: 60px 20px;
-            margin-top: 60px;
-            border-top: 1px solid #eee;
-        }
+.menu button:hover {
+    background: var(--ghibli-forest);
+    transform: scale(1.05);
+}
 
-        .redes {
-            margin-top: 25px;
-        }
+/* SECCIONES */
 
-        .fb-link {
-            display: inline-block;
-            background-color: #1877f2;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-        }
+.seccion {
+    display: none;
+    padding: 50px 20px;
+    animation: fade 0.5s ease;
+}
 
-        .fb-link:hover { opacity: 0.8; }
+.seccion.activa {
+    display: block;
+}
 
-        /* Admin Oculto */
-        #admin-trigger {
-            position: fixed;
-            bottom: 0;
-            right: 0;
-            width: 40px;
-            height: 40px;
-            z-index: 9999;
-            cursor: default;
-        }
-    </style>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+.contenido {
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+    background: white;
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+@keyframes fade {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* TIENDA */
+
+.contenedor {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    padding: 0 20px;
+}
+
+.tarjeta {
+    background: white;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+}
+
+.tarjeta:hover {
+    transform: scale(1.03);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.img-prod {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    cursor: pointer;
+    background-color: #eee;
+}
+
+.info {
+    padding: 25px;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.precio-original {
+    text-decoration: line-through;
+    color: #b5b5b5;
+    font-size: 0.9rem;
+}
+
+.precio-actual {
+    display: block;
+    color: var(--ghibli-forest);
+    font-weight: 700;
+    font-size: 1.4rem;
+    margin: 8px 0;
+}
+
+.btn-wa {
+    display: inline-block;
+    background: #25d366;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.btn-wa:hover {
+    background: #128c7e;
+}
+
+/* FOOTER */
+
+footer {
+    background: white;
+    text-align: center;
+    padding: 60px 20px;
+    margin-top: 60px;
+    border-top: 1px solid #eee;
+}
+
+.redes {
+    margin-top: 25px;
+}
+
+.fb-link {
+    display: inline-block;
+    background-color: #1877f2;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.fb-link:hover {
+    opacity: 0.8;
+}
+
+/* ADMIN */
+
+#admin-trigger {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    z-index: 9999;
+    cursor: default;
+}
+
+</style>
+
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
 
 <header>
+
     <div class="logo-container">
-        <!-- Ruta configurada según tu carpeta img/ -->
         <img src="img/logo.jpg" alt="Logo Ministerio del Amor">
     </div>
+
     <h1>Ministerio del Amor</h1>
-    <p class="frase-motivacional">"La sanación es un camino de regreso al corazón, donde el amor es la única medicina."</p>
+
+    <p class="frase-motivacional">
+        "La sanación es un camino de regreso al corazón, donde el amor es la única medicina."
+    </p>
+
 </header>
 
-<div class="contenedor" id="tienda"></div>
+<!-- MENU -->
+
+<nav class="menu">
+
+    <button onclick="mostrarSeccion('conocenos')">
+        Conócenos
+    </button>
+
+    <button onclick="mostrarSeccion('bienestar')">
+        Bienestar
+    </button>
+
+    <button onclick="mostrarSeccion('tienda')">
+        Tienda
+    </button>
+
+    <button onclick="mostrarSeccion('agenda')">
+        Agenda la Cita
+    </button>
+
+</nav>
+
+<!-- CONOCENOS -->
+
+<section id="conocenos" class="seccion activa">
+
+    <div class="contenido">
+
+        <h2>Conócenos</h2>
+
+        <p>
+            Ministerio del Amor nace como un espacio de acompañamiento,
+            medicina ancestral y bienestar espiritual.
+
+            Fundado en 2024 por Luna Azul,
+            Sofiel Hernández, Eroz Zednanreh 
+            y Lilith Sancoeur.
+
+            Somos fieles servidores del amor,
+            creyentes de que el miedo y el amor
+            pueden enseñarte lo mismo.
+
+            Solo falta decidir a cuál alimentar.
+
+            Aquí en Ministerio del Amor,
+            más que guías holísticos,
+            somos acompañantes del camino.
+            Permítenos ser parte de tu andar.
+        </p>
+
+        <p>
+            Creemos en la sanación desde el corazón,
+            la naturaleza y el equilibrio energético.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- BIENESTAR -->
+
+<section id="bienestar" class="seccion">
+
+    <div class="contenido">
+
+        <h2>Bienestar</h2>
+
+        <p>
+            Encuentra herramientas para armonizar mente,
+            cuerpo y espíritu.
+        </p>
+
+        <p>
+            Ceremonias, limpiezas energéticas,
+            medicina natural y acompañamiento espiritual.
+        </p>
+
+    </div>
+
+    <div class="contenedor">
+
+        <div class="tarjeta">
+            <img src="img/Cuarzo.jpg" class="img-prod">
+
+            <div class="info">
+
+                <h3>Sanación de Cristales</h3>
+
+                <p>
+                    Equilibrio energético y armonización espiritual.
+                </p>
+
+                <span class="precio-original">$600</span>
+
+                <span class="precio-actual">
+                    Cooperación Amorosa
+                </span>
+
+                <a href="https://wa.me/524591201474?text=Hola! Deseo informes sobre Sanación de Cristales"
+                class="btn-wa"
+                target="_blank">
+
+                Reservar
+
+                </a>
+
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <img src="img/masaje.jpg" class="img-prod">
+
+            <div class="info">
+
+                <h3>Masajes Terapéuticos</h3>
+
+                <p>
+                    Relajación profunda y liberación energética con alineamiento de chakras.
+                </p>
+
+                <span class="precio-original">$500</span>
+
+                <span class="precio-actual">
+                    Cooperación Amorosa
+                </span>
+
+                <a href="https://wa.me/524591201474?text=Hola! Deseo informes sobre Masajes Terapéuticos"
+                class="btn-wa"
+                target="_blank">
+
+                Reservar
+
+                </a>
+
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <img src="img/breathwork.jpg" class="img-prod">
+
+            <div class="info">
+
+                <h3>Breathwork</h3>
+
+                <p>
+                    Respiración consciente para desbloqueo emocional.
+                </p>
+
+                <span class="precio-original">$150</span>
+
+                <span class="precio-actual">
+                    Cooperación Amorosa
+                </span>
+
+                <a href="https://wa.me/524591201474?text=Hola! Deseo informes sobre Breathwork"
+                class="btn-wa"
+                target="_blank">
+
+                Reservar
+
+                </a>
+
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <img src="img/regresiones.jpg" class="img-prod">
+
+            <div class="info">
+
+                <h3>Regresiones a Vidas Pasadas</h3>
+
+                <p>
+                    Exploración espiritual y memoria del alma.
+                </p>
+
+                <span class="precio-original">$200</span>
+
+                <span class="precio-actual">
+                    Cooperación Amorosa
+                </span>
+
+                <a href="https://wa.me/524591201474?text=Hola! Deseo informes sobre Regresiones a Vidas Pasadas"
+                class="btn-wa"
+                target="_blank">
+
+                Reservar
+
+                </a>
+
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <img src="img/velaciones.jpg" class="img-prod">
+
+            <div class="info">
+
+                <h3>Velaciones</h3>
+
+                <p>
+                    Trabajo espiritual de luz y protección.
+                </p>
+
+                <span class="precio-original">$200</span>
+
+                <span class="precio-actual">
+                    Cooperación Amorosa
+                </span>
+
+                <a href="https://wa.me/524591201474?text=Hola! Deseo informes sobre Velaciones"
+                class="btn-wa"
+                target="_blank">
+
+                Reservar
+
+                </a>
+
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <img src="img/meditacion.jpg" class="img-prod">
+
+            <div class="info">
+
+                <h3>Meditaciones Guiadas</h3>
+
+                <p>
+                    Conexión interior y expansión de consciencia.
+                </p>
+
+                <span class="precio-original">$150</span>
+
+                <span class="precio-actual">
+                    Cooperación Amorosa
+                </span>
+
+                <a href="https://wa.me/524591201474?text=Hola! Deseo informes sobre Meditaciones Guiadas"
+                class="btn-wa"
+                target="_blank">
+
+                Reservar
+
+                </a>
+
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <img src="img/rape-circle.jpg" class="img-prod">
+
+            <div class="info">
+
+                <h3>Círculos de Rapé</h3>
+
+                <p>
+                    Medicina ancestral para limpieza y claridad.
+                </p>
+
+                <span class="precio-original">$50</span>
+
+                <span class="precio-actual">
+                    Cooperación Amorosa
+                </span>
+
+                <a href="https://wa.me/524591201474?text=Hola! Deseo informes sobre Círculos de Rapé"
+                class="btn-wa"
+                target="_blank">
+
+                Reservar
+
+                </a>
+
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <img src="img/cacao.jpg" class="img-prod">
+
+            <div class="info">
+
+                <h3>Ceremonia de Cacao</h3>
+
+                <p>
+                    Medicina ancestral para apertura del corazón.
+                </p>
+
+                <span class="precio-original">$500</span>
+
+                <span class="precio-actual">
+                    Cooperación Amorosa
+                </span>
+
+                <a href="https://wa.me/524591201474?text=Hola! Deseo informes sobre Ceremonia de Cacao"
+                class="btn-wa"
+                target="_blank">
+
+                Reservar
+
+                </a>
+
+            </div>
+        </div>
+<div class="tarjeta">
+            <img src="img/niños.jpg" class="img-prod">
+
+            <div class="info">
+
+                <h3>Cermonia Niños Santos</h3>
+
+                <p>
+                    Medicina ancestral para limpieza y claridad.
+                </p>
+
+                <span class="precio-original">$2000</span>
+
+                <span class="precio-actual">
+                    $1000
+                </span>
+
+                <a href="https://wa.me/524591201474?text=Hola! Deseo informes sobre Ceremonia de niños santos"
+                class="btn-wa"
+                target="_blank">
+
+                Reservar
+
+                </a>
+
+            </div>
+        </div>
+<div class="tarjeta">
+            <img src="img/cumpleaños.jpg" class="img-prod">
+
+            <div class="info">
+
+                <h3>Ceremonia de cumpleaños</h3>
+
+                <p>
+                    apapachate con un regalo de ti para ti y dejanos acompañarte en este dia tan
+                    especial.
+                </p>
+
+                <span class="precio-original">$2000</span>
+
+                <span class="precio-actual">
+                    Cooperación Amorosa
+                </span>
+
+                <a href="https://wa.me/524591201474?text=Hola! Deseo informes sobre Ceremonia de cumpleaños"
+                class="btn-wa"
+                target="_blank">
+
+                Reservar
+
+                </a>
+
+            </div>
+        </div>
+        <div class="tarjeta">
+            <img src="img/boda.jpg" class="img-prod">
+
+            <div class="info">
+
+                <h3>Matrimonio holistico</h3>
+
+                <p>
+                    una forma distinta se celebrar la union permitenos celebrar juntos este gran dia 
+                    nosotros nos preocupamos por todo tu relajate, si decides que sea con medicinas
+                    se les dara a ti y tus invitados la medicina de teonanactl, niños santos, si decidesque sea 
+                    sin medicina se incluye cacao en el segundo precio
+                </p>
+
+                 <span class="precio-actual"> con medicina $1500 por invitado</span>
+
+                <span class="precio-actual">
+                    sin medicina ajustado a tu presupuesto mas cooperacion amorosa
+
+                </span>
+
+                <a href="https://wa.me/524591201474?text=Hola! Deseo informes sobre Matrimonio Holistico"
+                class="btn-wa"
+                target="_blank">
+
+                Reservar
+
+                </a>
+
+            </div>
+        </div>
+        <div class="tarjeta">
+            <img src="img/Tarot.jpg" class="img-prod">
+
+            <div class="info">
+
+                <h3>Lectura de tarot o runas</h3>
+
+                <p>
+                   Recibe el mensaje de tus guias a travez de los oraculos, Lilith o Sofiel.
+                </p>
+
+                 <span class="precio-original"> $500 </span>
+
+                <span class="precio-actual">
+                    $200
+                    
+                </span>
+
+                <a href="https://wa.me/524591201474?text=Hola! Deseo informes sobre las lecturas de tarot"
+                class="btn-wa"
+                target="_blank">
+
+                Reservar
+
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+
+</section>
+
+<!-- TIENDA -->
+
+<section id="tienda" class="seccion">
+
+    <div class="contenedor" id="productos"></div>
+
+</section>
+
+<!-- AGENDA -->
+
+<section id="agenda" class="seccion">
+
+    <div class="contenido">
+        <h2>Agenda tu Cita</h2>
+        <p>
+            Agenda ceremonias, lecturas o acompañamiento espiritual de manera directa con nuestros guías.
+        </p>
+    </div>
+
+    <style>
+        .contenedor-agenda {
+            max-width: 1100px;
+            margin: 30px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            padding: 0 20px;
+        }
+        .tarjeta-guia {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #eee;
+        }
+        .img-guia {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            background-color: #eee;
+        }
+        .tarjeta-guia h3 {
+            margin: 10px 0 5px 0;
+            font-size: 1.2rem;
+        }
+        .tarjeta-guia p {
+            font-size: 0.9rem;
+            color: #777;
+            margin-bottom: 15px;
+        }
+    </style>
+
+    <div class="contenedor-agenda">
+
+        <div class="tarjeta-guia">
+            <img src="img/luna.jpg" class="img-guia" alt="Luna Azul">
+            <h3>Luna Azul</h3>
+            <p>Acompañante Guía</p>
+            <a href="https://wa.me/524591086914?text=Hola Luna Azul! Me gustaría agendar una cita contigo." 
+               class="btn-wa" target="_blank">WhatsApp</a>
+        </div>
+
+        <div class="tarjeta-guia">
+            <img src="img/sofiel.jpg" class="img-guia" alt="Sofiel Hernández">
+            <h3>Sofiel Hernández</h3>
+            <p>Acompañante Guía</p>
+            <a href="https://wa.me/524591201474?text=Hola Sofiel! Me gustaría agendar una cita contigo." 
+               class="btn-wa" target="_blank">WhatsApp</a>
+        </div>
+
+        <div class="tarjeta-guia">
+            <img src="img/eroz.jpg" class="img-guia" alt="Eroz Zednanreh">
+            <h3>Eroz Zednanreh</h3>
+            <p>Acompañante Guía</p>
+            <a href="https://wa.me/524591053661?text=Hola Eroz! Me gustaría agendar una cita contigo." 
+               class="btn-wa" target="_blank">WhatsApp</a>
+        </div>
+
+        <div class="tarjeta-guia">
+            <img src="img/lilith.jpg" class="img-guia" alt="Lilith Sancoeur">
+            <h3>Lilith Sancoeur</h3>
+            <p>Acompañante Guía</p>
+            <a href="https://wa.me/524434617785?text=Hola Lilith! Me gustaría agendar una cita contigo." 
+               class="btn-wa" target="_blank">WhatsApp</a>
+        </div>
+
+    </div>
+
+</section>
 
 <footer>
+
     <h2>Contáctanos</h2>
-    <p>Estamos aquí para acompañar tu proceso de sanación.</p>
+
+    <p>
+        Estamos aquí para acompañar tu proceso de sanación.
+    </p>
+
     <div class="redes">
-        <p>Encuéntranos en nuestra comunidad de Facebook:</p>
-        <a href="https://www.facebook.com/profile.php?id=61582251427724" class="fb-link" target="_blank">Visitar Ministerio del Amor</a>
+
+        <p>
+            Encuéntranos en nuestra comunidad de Facebook:
+        </p>
+
+        <a
+        href="https://www.facebook.com/profile.php?id=61582251427724"
+        class="fb-link"
+        target="_blank">
+
+        Visitar Ministerio del Amor
+
+        </a>
+
     </div>
+
 </footer>
 
-<!-- Esquina invisible para modo admin (Código: 1234) -->
 <div id="admin-trigger" onclick="activarAdmin()"></div>
 
 <script>
-    const NUMERO_WA = "524591201474";
+
+const NUMERO_WA = "524591201474";
+
+let productos = [
+
+    {
+        id: 1,
+        nombre: "Salvia Blanca (30cm)",
+        precio: "90",
+        img: "img/Salvia30.jpg",
+        desc: "Purificación ancestral."
+    },
+
+    {
+        id: 2,
+        nombre: "Palo Santo (40cm)",
+        precio: "40",
+        img: "img/palosanto.jpg",
+        desc: "Armonía y paz para tu espacio."
+    },
+
+    {
+        id: 3,
+        nombre: "Proyector Largo Personalizado",
+        precio: "300",
+        img: "img/Tepi.jpg",
+        desc: "Aplicador de Rapé artesanal de largo alcance."
+    },
+
+    {
+        id: 4,
+        nombre: "Proyector Individual",
+        precio: "250",
+        img: "img/Curipe.jpg",
+        desc: "Aplicador personal (Kuripe) sagrado."
+    },
+
+    {
+        id: 5,
+        nombre: "Pulsera Niño",
+        precio: "15",
+        img: "img/Pulsera niño.jpg",
+        desc: "proteccion a los menores del hogar."
+    },
+
+    {
+        id: 6,
+        nombre: "Salvia (12cm)",
+        precio: "30",
+        img: "img/Salvia10.jpg",
+        desc: "Protección y limpieza diaria."
+    },
+
+    {
+        id: 9,
+        nombre: "Brisa Áurica",
+        precio: "80",
+        img: "img/brisaaurica.jpg",
+        desc: "Eleva tu frecuencia vibratoria."
+    },
+
+    {
+        id: 10,
+        nombre: "Bálsamo de Esencias",
+        precio: "50",
+        img: "img/balsamo.jpg",
+        desc: "Relajación y bienestar natural."
+    },
+
+    {
+        id: 11,
+        nombre: "Rapé Nacional (g)",
+        precio: "20",
+        img: "img/rape.jpg",
+        desc: "Medicina de tabaco molido por gramo."
+    },
+
+    {
+        id: 12,
+        nombre: "Rapé Brasileño (g)",
+        precio: "30",
+        img: "img/rape.jpg",
+        desc: "Fuerza profunda de la selva por gramo."
+    },
+
+     {
+        id: 13,
+        nombre: "pulseras",
+        precio: "35",
+        img: "img/pulseras.jpg",
+        desc: "amuleto de proteccion."
+     },
     
-    let productos = [
-        { id: 1, nombre: "Salvia Blanca (30cm)", precio: "90", img: "img/Salvia30.jpg", desc: "Purificación ancestral." },
-        { id: 2, nombre: "Palo Santo (40cm)", precio: "40", img: "img/palosanto.jpg", desc: "Armonía y paz para tu espacio." },
-        { id: 3, nombre: "Proyector Largo Personalizado", precio: "300", img: "img/Tepi.jpg", desc: "Aplicador de Rapé artesanal de largo alcance." },
-        { id: 4, nombre: "Proyector Individual", precio: "250", img: "img/Curipe.jpg", desc: "Aplicador personal (Kuripe) sagrado." },
-        { id: 5, nombre: "Lectura de Tarot", precio: "200", img: "img/tarot.jpg", desc: "Claridad y guía mística." },
-        { id: 6, nombre: "Salvia (12cm)", precio: "30", img: "img/Salvia10.jpg", desc: "Protección y limpieza diaria." },
-        { id: 7, nombre: "Ceremonia de Cacao", precio: "Cooperación Amorosa", original: "250", img: "img/cacao.jpg", desc: "Medicina para abrir el corazón." },
-        { id: 8, nombre: "Sanación de Cristales", precio: "Cooperación Amorosa", original: "200", img: "img/Cuarzo.jpg", desc: "Equilibrio y alineación energética." },
-        { id: 9, nombre: "Brisa Áurica", precio: "80", img: "img/brisaaurica.jpg", desc: "Eleva tu frecuencia vibratoria." },
-        { id: 10, nombre: "Bálsamo de Esencias", precio: "50", img: "img/balsamo.jpg", desc: "Relajación y bienestar natural." },
-        { id: 11, nombre: "Rapé Nacional (g)", precio: "20", img: "img/rape.jpg", desc: "Medicina de tabaco molido por gramo." },
-       { id: 12, nombre: "Rapé Brasileño (g)", precio: "30", img: "img/rape.jpg", desc: "Fuerza profunda de la selva por gramo." },
-{ id: 13, nombre: "Masaje Holístico", precio: "Cooperacion Amorosa", original: "500", img: "img/masaje.jpg", desc: "Relajante con alineacion de Chakras." }
-        
 
-    ];
+    {
+        id: 14,
+        nombre: "Atrapasueños",
+        precio: "35",
+        img: "img/Atrapasueños.jpg",
+        desc: "Proteccion a la hora de dormir."
+     },
 
-    function renderTienda() {
-        const t = document.getElementById('tienda');
-        t.innerHTML = '';
-        productos.forEach(p => {
-            const card = document.createElement('div');
-            card.className = 'tarjeta';
-            card.innerHTML = `
-                <img src="${p.img}" class="img-prod" onclick="cambiarFoto(${p.id})">
-                <div class="info">
-                    <h3 contenteditable="false" onblur="guardarCambio(${p.id}, 'nombre', this)">${p.nombre}</h3>
-                    <p contenteditable="false" onblur="guardarCambio(${p.id}, 'desc', this)">${p.desc}</p>
-                    ${p.original ? `<span class="precio-original">$${p.original}</span>` : ''}
-                    <span class="precio-actual" contenteditable="false" onblur="guardarCambio(${p.id}, 'precio', this)">
-                        ${p.precio.includes('Coop') ? p.precio : '$' + p.precio}
-                    </span>
-                    <a href="https://wa.me/${NUMERO_WA}?text=Hola! Deseo informes sobre: ${p.nombre}" class="btn-wa" target="_blank">Adquirir Medicina</a>
-                </div>
-            `;
-            t.appendChild(card);
-        });
+     {
+        id: 15,
+        nombre: "Collar",
+        precio: "25",
+        img: "img/Collar.jpg",
+        desc: "cuarzo protector o amuleto."
+     },
+
+     {
+        id: 16,
+        nombre: "diadema",
+        precio: "10",
+        img: "img/diadema.jpg",
+        desc: "una diadema."
+     },
+     
+     {
+        id: 17,
+        nombre: "pulseras de tela",
+        precio: "15",
+        img: "img/pulserat.jpg",
+        desc: "hermosa pulsera tejida con patrones unicos y vibrantes."
+     }, 
+     {
+        id: 18,
+        nombre: "aretes",
+        precio: "5",
+        img: "img/arete.jpg",
+        desc: "Sencillo y elegante material plastico."
+     },
+
+     {
+        id: 19,
+        nombre: "aretes con plumas",
+        precio: "35",
+        img: "img/aretepluma.jpg",
+        desc: "adquiere este hermoso solo de pluma."
+     },
+
+     {
+        id: 20,
+        nombre: "Collar Chakras",
+        precio: "35",
+        img: "img/collarchakras.jpg",
+        desc: "Hermosos amuletos de chakras."
+     },
+
+     {
+        id: 21,
+        nombre: "Collar de serpiente",
+        precio: "15",
+        img: "img/collarser.jpg",
+        desc: "Evoca la fuerza del amazonas con este amuleto."
+     },
+
+     {
+        id:22 ,
+        nombre: "Cepillo de Bambo",
+        precio: "35",
+        img: "img/cepillo.jpg",
+        desc: "cuida la naturaleza con este cepillo biodegradable."
+     },
+
+     {
+        id:23 ,
+        nombre: "Sonaja huevo",
+        precio: "50",
+        img: "img/sonaja.jpg",
+        desc: "armoniza tu espacio con este bello instrumento."
+     },
+
+     {
+        id:24 ,
+        nombre: "Corona con plumas de pavoreal",
+        precio: "50",
+        img: "img/corona.jpg",
+        desc: "Hermosa corona con plumaje de pavoreal (solo se uso la Ia para quitar el fondo)."
+     },
+     
+    {
+        id:25 ,
+        nombre: "Chal",
+        precio: "50",
+        img: "img/chal.jpg",
+        desc: "Hermoso Chal de un color vibrante."
+     },
+
+     {
+        id:26 ,
+        nombre: "Sueter",
+        precio: "100",
+        img: "img/sueter.jpg",
+        desc: "hermoso sueter blanco."
+     },
+
+     {
+        id:27 ,
+        nombre: "Bufanda",
+        precio: "35",
+        img: "img/bufanda.jpg",
+        desc: "proteje a tu bebé de su cuellito con esta bufanda."
+     },
+
+     {
+        id:28 ,
+        nombre: "Vestido magenta",
+        precio: "350",
+        img: "img/vestidom.jpg",
+        desc: "hermoso vestido color megenta (el uso de ia solo a sido para quitar el fondo)."
+     },
+
+     {
+        id:29 ,
+        nombre: "Vestido Rojo",
+        precio: "250",
+        img: "img/vestidor.jpg",
+        desc: "hermoso vestido color rojo (el uso de ia solo a sido para quitar el fondo)."
+     },
+
+     {
+        id:30 ,
+        nombre: "Bolsa",
+        precio: "25",
+        img: "img/bolsa.jpg",
+        desc: "Bolsa pequeña para guardar celular y dinero."
+     },
+];
+
+function renderTienda() {
+
+    const t = document.getElementById('productos');
+
+    t.innerHTML = '';
+
+    productos.forEach(p => {
+
+        const card = document.createElement('div');
+
+        card.className = 'tarjeta';
+
+        card.innerHTML = `
+
+            <img
+            src="${p.img}"
+            class="img-prod"
+            onclick="cambiarFoto(${p.id})">
+
+            <div class="info">
+
+                <h3
+                contenteditable="false"
+                onblur="guardarCambio(${p.id}, 'nombre', this)">
+
+                ${p.nombre}
+
+                </h3>
+
+                <p
+                contenteditable="false"
+                onblur="guardarCambio(${p.id}, 'desc', this)">
+
+                ${p.desc}
+
+                </p>
+
+                <span
+                class="precio-actual"
+                contenteditable="false"
+                onblur="guardarCambio(${p.id}, 'precio', this)">
+
+                $${p.precio}
+
+                </span>
+
+                <a
+                href="https://wa.me/${NUMERO_WA}?text=Hola! Deseo informes sobre: ${p.nombre}"
+                class="btn-wa"
+                target="_blank">
+
+                Adquirir Medicina
+
+                </a>
+
+            </div>
+        `;
+
+        t.appendChild(card);
+
+    });
+
+}
+
+function mostrarSeccion(id) {
+
+    document.querySelectorAll('.seccion')
+    .forEach(sec => {
+        sec.classList.remove('activa');
+    });
+
+    document.getElementById(id)
+    .classList.add('activa');
+
+}
+
+function activarAdmin() {
+
+    if(prompt("Código de Acceso:") === "1234") {
+
+        document.querySelectorAll('[contenteditable]')
+        .forEach(e => e.contentEditable = "true");
+
+        alert(
+            "Modo Edición Activado"
+        );
     }
+}
 
-    function activarAdmin() {
-        if(prompt("Código de Acceso:") === "1234") {
-            document.querySelectorAll('[contenteditable]').forEach(e => e.contentEditable = "true");
-            alert("Modo Edición Activado: Puedes editar textos directamente y hacer clic en las imágenes para cambiar el archivo.");
-        }
+function guardarCambio(id, campo, el) {
+
+    const p = productos.find(i => i.id === id);
+
+    p[campo] = el.innerText.replace('$', '');
+
+}
+
+function cambiarFoto(id) {
+
+    const p = productos.find(i => i.id === id);
+
+    const nuevoNombre = prompt(
+        "Nombre del archivo dentro de /img:",
+        p.img.split('/').pop()
+    );
+
+    if(nuevoNombre) {
+
+        p.img = "img/" + nuevoNombre;
+
+        renderTienda();
+
     }
+}
 
-    function guardarCambio(id, campo, el) {
-        const p = productos.find(i => i.id === id);
-        p[campo] = el.innerText.replace('$', '');
-    }
+renderTienda();
 
-    function cambiarFoto(id) {
-        const p = productos.find(i => i.id === id);
-        const nuevoNombre = prompt("Nombre del archivo dentro de /img (ejemplo: foto.jpg):", p.img.split('/').pop());
-        if(nuevoNombre) {
-            p.img = "img/" + nuevoNombre;
-            renderTienda();
-        }
-    }
-
-    renderTienda();
 </script>
 
 </body>
